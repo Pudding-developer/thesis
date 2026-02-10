@@ -1,0 +1,142 @@
+/* Performance Overview Specific Styles */
+
+.page-title {
+    color: var(--dark-red);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+.performance-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1.8fr;
+    /* Left section smaller, Right section wider */
+    gap: 25px;
+}
+
+/* Academic Standing Card */
+.academic-standing-card {
+    height: 100%;
+    /* Fill column height */
+    border: 1px solid var(--primary-red);
+    /* Red border as per design */
+}
+
+.standing-details p {
+    margin: 10px 0;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+.improvement-section h4,
+.attention-section h4 {
+    color: #333;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.subject-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.subject-list li {
+    margin-bottom: 8px;
+    color: #555;
+    font-size: 0.95rem;
+    padding-left: 10px;
+    border-left: 3px solid #ddd;
+}
+
+.attention-section {
+    margin-top: 10px;
+}
+
+/* Charts Column */
+.charts-column {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.chart-card {
+    min-height: 280px;
+    /* Force some height */
+    padding: 20px;
+    border: 1px solid var(--primary-red);
+}
+
+.chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.chart-header .card-title {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    font-size: 1.1rem;
+}
+
+.chart-header .subtitle {
+    font-weight: 400;
+    font-size: 0.9rem;
+    color: #666;
+    margin-left: 10px;
+}
+
+.trend-positive {
+    font-weight: 800;
+    font-size: 1.1rem;
+}
+
+/* Custom Chart Legend */
+.chart-legend-custom {
+    display: flex;
+    gap: 15px;
+    font-size: 0.8rem;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #666;
+}
+
+.legend-item .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.legend-item .dot.lab {
+    background-color: #cfcfcf;
+}
+
+.legend-item .dot.mid {
+    background-color: #d1121e;
+}
+
+.legend-item .dot.fin {
+    background-color: #e62e2e;
+}
+
+/* Chart Container */
+.chart-container {
+    position: relative;
+    height: 220px;
+    width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .performance-grid {
+        grid-template-columns: 1fr;
+    }
+}

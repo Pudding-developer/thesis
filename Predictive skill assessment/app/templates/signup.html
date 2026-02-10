@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Performance Forecasting</title>
+    <link rel="stylesheet" href="/static/signup.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="signup-body">
+    <!-- Navigation Bar -->
+    <nav class="signup-nav">
+        <ul class="nav-menu">
+            <li><a href="#">HOME</a></li>
+            <li><a href="#">PROJECT</a></li>
+            <li><a href="#">ABOUT</a></li>
+            <li><a href="#">CONTACT</a></li>
+            <li><a href="#" class="btn-reach-out">REACH OUT</a></li>
+        </ul>
+    </nav>
+
+    <div class="signup-container">
+        <div class="signup-card">
+            <!-- Logo Header -->
+            <div class="logo-header">
+                <img src="/static/img/bsu-logo.png" alt="University Logo" class="logo-img">
+                <div class="logo-text">
+                    <h4>Performance</h4>
+                    <h3>FORECASTING</h3>
+                </div>
+            </div>
+
+            <h2 class="signup-title">Create a New Account</h2>
+
+            <form action="/dashboard" class="signup-form">
+                <div class="input-group">
+                    <label>Full Name</label>
+                    <input type="text" id="fullname" required>
+                </div>
+
+                <div class="input-group">
+                    <label>G-Suite Account</label>
+                    <input type="email" id="gsuite" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Password</label>
+                    <div class="input-wrapper">
+                        <input type="password" id="password" required>
+                        <span class="toggle-password">
+                            <i class="fa-regular fa-eye-slash"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Confirm Password</label>
+                    <div class="input-wrapper">
+                        <input type="password" id="confirm_password" required>
+                        <span class="toggle-password">
+                            <i class="fa-regular fa-eye-slash"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button type="button" class="btn-signup">Sign up as Instructor?</button>
+                    <button type="submit" class="btn-signup">Sign up as Student?</button>
+                </div>
+
+                <div class="login-redirect">
+                    <p>Already have an account? <a href="/">Log in</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Toggle Password Visibility
+        document.querySelectorAll('.toggle-password').forEach(toggle => {
+            toggle.addEventListener('click', function () {
+                const input = this.previousElementSibling;
+                const icon = this.querySelector('i');
+
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
+                } else {
+                    input.type = 'password';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

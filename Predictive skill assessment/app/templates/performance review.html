@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performance Overview - Performance Forecasting</title>
+    <link rel="stylesheet" href="/static/dashboard.css">
+    <link rel="stylesheet" href="/static/performance overview.css">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-toggle" id="sidebarToggle">
+                <i class="fa-solid fa-arrow-left"></i>
+            </div>
+            <div class="sidebar-header">
+                <img src="/static/img/bsu-logo.png" alt="Logo" class="sidebar-logo">
+                <div class="brand-text">
+                    <h4>Performance</h4>
+                    <h3>FORECASTING</h3>
+                </div>
+            </div>
+
+            <ul class="nav-links">
+                <li class="nav-item">
+                    <a href="/dashboard" class="nav-link">
+                        <span class="nav-icon"><i class="fa-solid fa-border-all"></i></span>
+                        <span class="nav-text">Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link active expanded" id="perfOverviewLink">
+                        <span class="nav-icon"><i class="fa-solid fa-chart-pie"></i></span>
+                        <span class="nav-text">Performance Overview</span>
+                        <i class="fa-solid fa-chevron-down ms-auto dropdown-icon"
+                            style="transform: rotate(180deg);"></i>
+                    </a>
+                    <ul class="sub-menu show" id="perfSubMenu">
+                        <li><a href="/learning_outcome_alignment">Learning Outcome Alignment</a></li>
+                        <li><a href="#">Subject Performance</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" id="skillProgressLink">
+                        <span class="nav-icon"><i class="fa-solid fa-arrow-trend-up"></i></span>
+                        <span class="nav-text">Skill Progress</span>
+                        <i class="fa-solid fa-chevron-down ms-auto dropdown-icon"></i>
+                    </a>
+                    <ul class="sub-menu" id="skillSubMenu">
+                        <li><a href="#">Mapped Skill Development</a></li>
+                        <li><a href="#">Skills Chart</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" id="devAnalyticsLink">
+                        <span class="nav-icon"><i class="fa-solid fa-chart-simple"></i></span>
+                        <span class="nav-text">Development Analytics</span>
+                        <i class="fa-solid fa-chevron-down ms-auto dropdown-icon"></i>
+                    </a>
+                    <ul class="sub-menu" id="devSubMenu">
+                        <li><a href="#">Projected Skill Growth</a></li>
+                        <li><a href="#">Predicted Grades</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon"><i class="fa-solid fa-file-invoice"></i></span>
+                        <span class="nav-text">Resume Generator</span>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="sidebar-footer">
+                <ul class="nav-links">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <span class="nav-icon"><i class="fa-solid fa-gear"></i></span>
+                            <span class="nav-text">Settings</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/" class="nav-link">
+                            <span class="nav-icon"><i class="fa-solid fa-arrow-right-from-bracket"></i></span>
+                            <span class="nav-text">Log Out</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <span class="nav-icon"><i class="fa-solid fa-circle-question"></i></span>
+                            <span class="nav-text">Help</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Header -->
+            <header class="top-header">
+                <div class="welcome-text">
+                    <h2>Welcome, NameStudent</h2>
+                </div>
+                <div class="header-right">
+                    <div class="search-bar">
+                        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                        <input type="text" placeholder="Search here">
+                    </div>
+                    <div class="user-profile">
+                        <div class="user-info">
+                            <span class="user-name">Beltran, Don Maxwell F.</span>
+                            <span class="user-id">22-07**5</span>
+                        </div>
+                        <div class="user-avatar">
+                            <img src="https://ui-avatars.com/api/?name=Don+Maxwell+Beltran&background=d1121e&color=fff"
+                                alt="User">
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-wrapper">
+                <h2 class="page-title">Performance Overview</h2>
+
+                <div class="performance-grid">
+                    <!-- Current Academic Standing -->
+                    <div class="card academic-standing-card">
+                        <h3 class="card-title">Current Academic Standing</h3>
+
+                        <div class="standing-details">
+                            <p><strong>GWA:</strong> 1.25</p>
+                            <p><strong>Credits Completed:</strong> ---</p>
+                            <p><strong>Subjects Passed:</strong> 47</p>
+                            <p><strong>Academic Status:</strong> Regular</p>
+                            <p><strong>Overall Performance Trend:</strong> +3.41%</p>
+                        </div>
+
+                        <br>
+
+                        <div class="improvement-section">
+                            <h4>Subject for Improvement:</h4>
+                            <ul class="subject-list">
+                                <li>CpE 402 - Cognate/Elective Course 2</li>
+                                <li>CpE 422 - CpE Practice and Design 1</li>
+                                <li>CpE 421 - Emerging Technologies in CpE</li>
+                            </ul>
+                        </div>
+
+                        <br>
+
+                        <div class="attention-section">
+                            <h4>Area for Attention:</h4>
+                            <p>Applied Problem-Solving</p>
+                            <p><strong>Remarks:</strong> Needs Support</p>
+                        </div>
+                    </div>
+
+                    <!-- Charts Column -->
+                    <div class="charts-column">
+                        <!-- Cumulative GWA Chart -->
+                        <div class="card chart-card">
+                            <div class="chart-header">
+                                <h3 class="card-title">Cumulative GWA</h3>
+                                <span class="trend-positive">+3.41%</span>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="gwaChart"></canvas>
+                            </div>
+                        </div>
+
+                        <!-- Rank of Excelled Subjects Chart -->
+                        <div class="card chart-card">
+                            <div class="chart-header">
+                                <h3 class="card-title">Rank of Excelled Subjects <span class="subtitle">(Term-Specific
+                                        Performance)</span></h3>
+                                <div class="chart-legend-custom">
+                                    <span class="legend-item"><span class="dot lab"></span> Laboratory</span>
+                                    <span class="legend-item"><span class="dot mid"></span> Midterms</span>
+                                    <span class="legend-item"><span class="dot fin"></span> Finals</span>
+                                </div>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="excelledSubjectsChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Sidebar Toggle Script (Reused) -->
+    <script>
+        const sidebar = document.getElementById('sidebar');
+        const toggleBtn = document.getElementById('sidebarToggle');
+        const icon = toggleBtn.querySelector('i');
+
+        toggleBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+            if (sidebar.classList.contains('collapsed')) {
+                icon.classList.remove('fa-arrow-left');
+                icon.classList.add('fa-arrow-right');
+            } else {
+                icon.classList.remove('fa-arrow-right');
+                icon.classList.add('fa-arrow-left');
+            }
+        });
+
+        // Sub-menu Toggle Logic
+        const perfLink = document.getElementById('perfOverviewLink');
+        const perfSubMenu = document.getElementById('perfSubMenu');
+
+        perfLink.addEventListener('click', (e) => {
+            if (sidebar.classList.contains('collapsed')) return;
+
+            // Check if the click was on the dropdown icon
+            if (e.target.classList.contains('dropdown-icon')) {
+                e.preventDefault();
+                e.stopPropagation();
+                perfSubMenu.classList.toggle('show');
+                perfLink.classList.toggle('expanded');
+            }
+            // Otherwise, let it navigate
+        });
+
+        // Skill Progress Toggle Logic
+        const skillLink = document.getElementById('skillProgressLink');
+        const skillSubMenu = document.getElementById('skillSubMenu');
+
+        skillLink.addEventListener('click', (e) => {
+            if (sidebar.classList.contains('collapsed')) return;
+
+            // Check if the click was on the dropdown icon
+            if (e.target.classList.contains('dropdown-icon')) {
+                e.preventDefault();
+                e.stopPropagation();
+                skillSubMenu.classList.toggle('show');
+                skillLink.classList.toggle('expanded');
+            }
+        });
+
+        // Development Analytics Toggle Logic
+        const devLink = document.getElementById('devAnalyticsLink');
+        const devSubMenu = document.getElementById('devSubMenu');
+
+        devLink.addEventListener('click', (e) => {
+            if (sidebar.classList.contains('collapsed')) return;
+
+            // Check if the click was on the dropdown icon
+            if (e.target.classList.contains('dropdown-icon')) {
+                e.preventDefault();
+                e.stopPropagation();
+                devSubMenu.classList.toggle('show');
+                devLink.classList.toggle('expanded');
+            }
+        });
+    </script>
+
+    <!-- Chart Scripts -->
+    <script>
+        // Cumulative GWA Chart
+        const ctxGWA = document.getElementById('gwaChart').getContext('2d');
+        const gwaChart = new Chart(ctxGWA, {
+            type: 'line',
+            data: {
+                labels: ['Yr1, Sm 1', 'Yr1, Sm 2', 'Yr2, Sm 1', 'Yr2, Sm 2', 'Yr3, Sm 1', 'Yr3, Sm 2', 'Yr4, Sm 1', 'Yr4, Sm 2'],
+                datasets: [{
+                    label: 'GWA',
+                    data: [88, 75, 90, 88, 85, 87, 91, 95], /* Dummy data matching visual trend */
+                    borderColor: '#d1121e',
+                    borderWidth: 1.5,
+                    pointBackgroundColor: '#d1121e',
+                    pointRadius: 2,
+                    tension: 0,
+                    fill: false
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        min: 0,
+                        max: 100,
+                        grid: { color: '#f0f0f0' },
+                        ticks: { stepSize: 20 }
+                    },
+                    x: {
+                        grid: { display: false },
+                        ticks: { font: { size: 9 } }
+                    }
+                }
+            }
+        });
+
+        // Excelled Subjects Chart (Stacked Horizontal Bar)
+        const ctxExcel = document.getElementById('excelledSubjectsChart').getContext('2d');
+        const excelChart = new Chart(ctxExcel, {
+            type: 'bar',
+            data: {
+                labels: ['CpE 417', 'CpE 418', 'CpE 419', 'CpE 420', 'CpE 421', 'CpE 422', 'CpE 402'],
+                datasets: [
+                    {
+                        label: 'Laboratory',
+                        data: [50, 48, 45, 45, 42, 40, 38],
+                        backgroundColor: '#cfcfcf',
+                        barPercentage: 0.8
+                    },
+                    {
+                        label: 'Midterms',
+                        data: [60, 55, 50, 48, 45, 45, 42],
+                        backgroundColor: '#d1121e',
+                        barPercentage: 0.8
+                    },
+                    {
+                        label: 'Finals',
+                        data: [90, 60, 50, 55, 52, 55, 48], /* Adjust to match visual lengths roughly */
+                        backgroundColor: '#e62e2e',
+                        barPercentage: 0.8
+                    }
+                ]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false } /* Custom legend implemented in HTML */
+                },
+                scales: {
+                    x: {
+                        stacked: true,
+                        max: 200, /* Based on image scale */
+                        grid: { display: false }
+                    },
+                    y: {
+                        stacked: true,
+                        grid: { display: false }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

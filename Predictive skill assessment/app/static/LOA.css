@@ -1,0 +1,178 @@
+/* LOA Page Specific Styles */
+
+.page-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.course-subtitle {
+    color: var(--text-dark);
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-size: 1.1rem;
+}
+
+/* Filter Dropdown */
+.filter-dropdown {
+    display: flex;
+    align-items: center;
+    background: white;
+    border: 1px solid #ddd;
+    padding: 5px 10px;
+    border-radius: 5px;
+    gap: 8px;
+    color: var(--dark-red);
+}
+
+.filter-dropdown select {
+    border: none;
+    outline: none;
+    font-size: 0.9rem;
+    color: #555;
+    background: transparent;
+    cursor: pointer;
+}
+
+/* Grid Layout */
+.loa-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 25px;
+}
+
+.loa-left-col,
+.loa-right-col {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* Table Styles */
+.table-card {
+    padding: 20px;
+    border: 1px solid var(--primary-red);
+}
+
+.loa-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.loa-table th,
+.loa-table td {
+    padding: 12px 10px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.loa-table th {
+    font-weight: 700;
+    color: #333;
+}
+
+.loa-table td {
+    color: #555;
+}
+
+.loa-table tr:last-child td {
+    border-bottom: none;
+}
+
+.score-text {
+    font-weight: 700;
+    color: #333;
+}
+
+/* Proficiency Status Colors */
+.status-proficient {
+    color: #28a745;
+    font-weight: 600;
+}
+
+.status-developing {
+    color: #fd7e14;
+    font-weight: 600;
+}
+
+.status-improvement {
+    color: #dc3545;
+    font-weight: 600;
+}
+
+/* ILO Descriptions */
+.ilo-descriptions {
+    margin-top: 15px;
+    font-size: 0.85rem;
+    color: #666;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
+
+.ilo-descriptions p {
+    margin: 5px 0;
+}
+
+/* Radar Chart */
+.chart-container-radar {
+    position: relative;
+    height: 300px;
+    /* Taller for radar */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* Remarks Section */
+.remarks-card {
+    border: 1px solid var(--primary-red);
+    padding: 20px;
+}
+
+.remark-item {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 15px;
+    align-items: flex-start;
+}
+
+.remark-item i {
+    font-size: 1.1rem;
+    margin-top: 2px;
+}
+
+.remark-item p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #444;
+    line-height: 1.4;
+}
+
+.text-green {
+    color: #28a745;
+}
+
+.text-yellow {
+    color: #ffc107;
+}
+
+.text-gray {
+    color: #6c757d;
+}
+
+/* Sub-menu Active State for LOA Page */
+.active-sub {
+    color: var(--text-white) !important;
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .loa-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Performance Forecasting</title>
+    <link rel="stylesheet" href="/static/dashboard.css">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-toggle" id="sidebarToggle">
+                <i class="fa-solid fa-arrow-left"></i>
+            </div>
+            <div class="sidebar-header">
+                <img src="/static/img/bsu-logo.png" alt="Logo" class="sidebar-logo">
+                <div class="brand-text">
+                    <h4>Performance</h4>
+                    <h3>FORECASTING</h3>
+                </div>
+            </div>
+
+            <ul class="nav-links">
+                <li class="nav-item">
+                    <a href="#" class="nav-link active">
+                        <span class="nav-icon"><i class="fa-solid fa-border-all"></i></span>
+                        <span class="nav-text">Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/performance_overview" class="nav-link" id="perfOverviewLink">
+                        <span class="nav-icon"><i class="fa-solid fa-chart-pie"></i></span>
+                        <span class="nav-text">Performance Overview</span>
+                        <i class="fa-solid fa-chevron-down ms-auto dropdown-icon"></i>
+                    </a>
+                    <ul class="sub-menu" id="perfSubMenu">
+                        <li><a href="/learning_outcome_alignment">Learning Outcome Alignment</a></li>
+                        <li><a href="#">Subject Performance</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" id="skillProgressLink">
+                        <span class="nav-icon"><i class="fa-solid fa-arrow-trend-up"></i></span>
+                        <span class="nav-text">Skill Progress</span>
+                        <i class="fa-solid fa-chevron-down ms-auto dropdown-icon"></i>
+                    </a>
+                    <ul class="sub-menu" id="skillSubMenu">
+                        <li><a href="#">Mapped Skill Development</a></li>
+                        <li><a href="#">Skills Chart</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" id="devAnalyticsLink">
+                        <span class="nav-icon"><i class="fa-solid fa-chart-simple"></i></span>
+                        <span class="nav-text">Development Analytics</span>
+                        <i class="fa-solid fa-chevron-down ms-auto dropdown-icon"></i>
+                    </a>
+                    <ul class="sub-menu" id="devSubMenu">
+                        <li><a href="#">Projected Skill Growth</a></li>
+                        <li><a href="#">Predicted Grades</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+
+            <div class="sidebar-footer">
+                <ul class="nav-links">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <span class="nav-icon"><i class="fa-solid fa-gear"></i></span>
+                            <span class="nav-text">Settings</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <!-- Link back to login/logout -->
+                        <a href="/" class="nav-link">
+                            <span class="nav-icon"><i class="fa-solid fa-arrow-right-from-bracket"></i></span>
+                            <span class="nav-text">Log Out</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <span class="nav-icon"><i class="fa-solid fa-circle-question"></i></span>
+                            <span class="nav-text">Help</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Header -->
+            <header class="top-header">
+                <div class="welcome-text">
+                    <h2>Welcome, NameStudent</h2>
+                </div>
+                <div class="header-right">
+                    <div class="search-bar">
+                        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                        <input type="text" placeholder="Search here">
+                    </div>
+                    <div class="user-profile">
+                        <div class="user-info">
+                            <span class="user-name">Beltran, Don Maxwell F.</span>
+                            <span class="user-id">22-07**5</span>
+                        </div>
+                        <div class="user-avatar">
+                            <!-- Placeholder avatar or user image -->
+                            <img src="https://ui-avatars.com/api/?name=Don+Maxwell+Beltran&background=d1121e&color=fff"
+                                alt="User">
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-wrapper">
+                <!-- Controls -->
+                <div class="controls-row">
+                    <div class="filter-wrapper">
+                        <i class="fa-solid fa-filter filter-icon"></i>
+                        <select class="filter-select">
+                            <option value="" disabled selected>Filter Year</option>
+                            <option value="1st">1st Year</option>
+                            <option value="2nd">2nd Year</option>
+                            <option value="3rd">3rd Year</option>
+                            <option value="4th">4th Year</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Dashboard Grid -->
+                <div class="dashboard-grid">
+                    <!-- Student Info Card -->
+                    <div class="card student-info-card">
+                        <h3 class="card-title">Student Information</h3>
+                        <div class="info-list">
+                            <p><span class="info-label">Name:</span> Don Maxwell F. Beltran</p>
+                            <p><span class="info-label">Student ID:</span> 22-07**5</p>
+                            <p><span class="info-label">Program:</span> BS Computer Engineering</p>
+                            <p><span class="info-label">Academic Year/Level:</span> 2024-2025 - 1st year</p>
+                            <p><span class="info-label">Semester:</span> 2nd</p>
+                            <p><span class="info-label">Progress to Degree:</span> 30%</p>
+                        </div>
+                    </div>
+
+                    <!-- Stats Cards -->
+                    <div class="card stat-card">
+                        <span class="stat-header">Overall Performance</span>
+                        <span class="stat-value">89.6%</span>
+                        <span class="stat-trend">+3.1%</span>
+                    </div>
+
+                    <div class="card stat-card skill-achieved">
+                        <span class="stat-header">Skill Achieved</span>
+                        <span class="stat-value">89.6%</span>
+                        <span class="stat-trend">Skill Projection +4.5%</span>
+                    </div>
+
+                    <div class="card stat-card predicted-grade">
+                        <span class="stat-header">Predicted Grade</span>
+                        <span class="stat-value">91.3%</span>
+                        <span class="stat-trend">+2.7%</span>
+                    </div>
+
+                    <!-- Learning Outcome Status Chart -->
+                    <div class="card learning-outcome-card">
+                        <h3 class="card-title">Learning Outcome Status</h3>
+                        <div style="position: relative; height: 250px;">
+                            <canvas id="outcomeChart"></canvas>
+                        </div>
+                        <div style="margin-top: 10px; font-size: 0.8rem; color: #666;">
+                            <strong>Remarks:</strong><br>
+                            You are currently on track with most learning outcomes. Continued focus on applied and
+                            collaborative learning activities is recommended.
+                        </div>
+                    </div>
+
+                    <!-- Performance Prediction Summary Chart -->
+                    <div class="card prediction-summary-card">
+                        <h3 class="card-title">Performance Prediction Summary</h3>
+                        <div style="position: relative; height: 250px;">
+                            <canvas id="predictionChart"></canvas>
+                        </div>
+                        <div class="prediction-details">
+                            <ul>
+                                <li>Predicted Average Grade Next Term: 88.3%</li>
+                                <li>Subjects at Risk: Advanced Mathematics (70% predicted score)</li>
+                                <li>Improvement Trend: +5% compared to last term</li>
+                                <li>Skill Predicted to Improve: Data Analytics, Applied problem-solving</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Chart Scripts -->
+    <script>
+        // Learning Outcome Chart (Pie)
+        const ctxOutcome = document.getElementById('outcomeChart').getContext('2d');
+        const outcomeChart = new Chart(ctxOutcome, {
+            type: 'pie',
+            data: {
+                labels: ['Solid Outcome (32.3%)', 'Weakest Outcome (17.2%)', 'For Improvements (10.1%)', 'Total ILOs Achieved (40.4%)'],
+                datasets: [{
+                    data: [32.3, 17.2, 10.1, 40.4],
+                    backgroundColor: [
+                        '#8a0b12', // Dark Red
+                        '#b31217', // Medium Red
+                        '#d1121e', // Primary Red
+                        '#e62e2e'  // Light Red
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'right',
+                        labels: {
+                            font: { size: 10 },
+                            boxWidth: 10
+                        }
+                    }
+                }
+            }
+        });
+
+        // Prediction Chart (Line)
+        const ctxPrediction = document.getElementById('predictionChart').getContext('2d');
+        const predictionChart = new Chart(ctxPrediction, {
+            type: 'line',
+            data: {
+                labels: ['Yr1, Sm 1', 'Yr1, Sm 2', 'Yr2, Sm 1', 'Yr2, Sm 2', 'Yr3, Sm 1', 'Yr3, Sm 2', 'Yr4, Sm 1'],
+                datasets: [{
+                    label: 'Performance Trend',
+                    data: [88, 75, 90, 88, 85, 87, 95],
+                    borderColor: '#d1121e',
+                    backgroundColor: 'rgba(209, 18, 30, 0.1)',
+                    borderWidth: 2,
+                    fill: true,
+                    tension: 0.1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        min: 0,
+                        max: 100
+                    }
+                }
+            }
+        });
+    </script>
+    <script>
+        const sidebar = document.getElementById('sidebar');
+        const toggleBtn = document.getElementById('sidebarToggle');
+        const icon = toggleBtn.querySelector('i');
+
+        toggleBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+
+            // Toggle icon
+            if (sidebar.classList.contains('collapsed')) {
+                icon.classList.remove('fa-arrow-left');
+                icon.classList.add('fa-arrow-right');
+            } else {
+                icon.classList.remove('fa-arrow-right');
+                icon.classList.add('fa-arrow-left');
+            }
+        });
+
+        // Sub-menu Toggle Logic
+        const perfLink = document.getElementById('perfOverviewLink');
+        const perfSubMenu = document.getElementById('perfSubMenu');
+
+        perfLink.addEventListener('click', (e) => {
+            if (sidebar.classList.contains('collapsed')) return; // Do nothing if collapsed
+
+            // Check if the click was on the dropdown icon
+            if (e.target.classList.contains('dropdown-icon')) {
+                e.preventDefault(); // Prevent navigation only for icon
+                e.stopPropagation();
+                perfSubMenu.classList.toggle('show');
+                perfLink.classList.toggle('expanded');
+            }
+            // Otherwise, let it navigate
+        });
+
+        // Skill Progress Toggle Logic
+        const skillLink = document.getElementById('skillProgressLink');
+        const skillSubMenu = document.getElementById('skillSubMenu');
+
+        skillLink.addEventListener('click', (e) => {
+            if (sidebar.classList.contains('collapsed')) return;
+
+            // Check if the click was on the dropdown icon
+            if (e.target.classList.contains('dropdown-icon')) {
+                e.preventDefault();
+                e.stopPropagation();
+                skillSubMenu.classList.toggle('show');
+                skillLink.classList.toggle('expanded');
+            }
+        });
+
+        // Development Analytics Toggle Logic
+        const devLink = document.getElementById('devAnalyticsLink');
+        const devSubMenu = document.getElementById('devSubMenu');
+
+        devLink.addEventListener('click', (e) => {
+            if (sidebar.classList.contains('collapsed')) return;
+
+            // Check if the click was on the dropdown icon
+            if (e.target.classList.contains('dropdown-icon')) {
+                e.preventDefault();
+                e.stopPropagation();
+                devSubMenu.classList.toggle('show');
+                devLink.classList.toggle('expanded');
+            }
+        });
+    </script>
+</body>
+
+</html>

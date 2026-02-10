@@ -1,0 +1,229 @@
+/* Signup Page Styles */
+
+:root {
+    --primary-red: #d1121e;
+    --dark-bg: #1a0505;
+    /* Very dark red/black for card bg */
+    --input-border: #555;
+}
+
+body.signup-body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background: url('/static/img/signup-bg.png') no-repeat center center fixed;
+    background-size: 100% 100%;
+    /* Changed from 'cover' to ensure full image visibility */
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    /* Vertically center */
+    justify-content: flex-start;
+    /* Align left based on image */
+    padding-left: 10%;
+    /* Offset from left */
+    position: relative;
+    /* For absolute nav positioning */
+}
+
+/* Navigation Styles */
+.signup-nav {
+    position: absolute;
+    top: 30px;
+    right: 50px;
+    z-index: 10;
+}
+
+.nav-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-menu li a {
+    text-decoration: none;
+    color: #4a0000;
+    /* Dark red text based on image */
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+
+.nav-menu li a:hover {
+    color: var(--primary-red);
+}
+
+.btn-reach-out {
+    background-color: #d1121e;
+    /* Red button */
+    color: white !important;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-reach-out:hover {
+    background-color: #b30f19;
+    transform: translateY(-2px);
+}
+
+/* Card Container */
+.signup-card {
+    background: linear-gradient(180deg, #4a0000 0%, #000000 100%);
+    /* Dark gradient based on image */
+    width: 400px;
+    padding: 30px;
+    border-radius: 15px;
+    color: white;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+/* Logo Header */
+.logo-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+
+.logo-img {
+    width: 40px;
+    height: auto;
+}
+
+.logo-text h4 {
+    margin: 0;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    opacity: 0.8;
+    letter-spacing: 1px;
+}
+
+.logo-text h3 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+/* Title */
+.signup-title {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+/* Form Styles */
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.input-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-left: 2px;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 8px 0;
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+input:focus {
+    border-bottom-color: white;
+}
+
+/* Toggle Password Icon */
+.toggle-password {
+    position: absolute;
+    right: 5px;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.toggle-password:hover {
+    color: white;
+}
+
+/* Buttons */
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn-signup {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    background-color: #f0f0f0;
+    color: #000;
+}
+
+.btn-signup:hover {
+    background-color: white;
+    transform: translateY(-2px);
+}
+
+/* Login Redirect */
+.login-redirect {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 0.85rem;
+}
+
+.login-redirect a {
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.login-redirect a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    body.signup-body {
+        justify-content: center;
+        padding-left: 0;
+    }
+
+    .signup-card {
+        width: 90%;
+        max-width: 400px;
+    }
+}

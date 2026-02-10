@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Outcome Alignment - Performance Forecasting</title>
+    <link rel="stylesheet" href="/static/dashboard.css">
+    <link rel="stylesheet" href="/static/LOA.css">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-toggle" id="sidebarToggle">
+                <i class="fa-solid fa-arrow-left"></i>
+            </div>
+            <div class="sidebar-header">
+                <img src="/static/img/bsu-logo.png" alt="Logo" class="sidebar-logo">
+                <div class="brand-text">
+                    <h4>Performance</h4>
+                    <h3>FORECASTING</h3>
+                </div>
+            </div>
+
+            <ul class="nav-links">
+                <li class="nav-item">
+                    <a href="/dashboard" class="nav-link">
+                        <span class="nav-icon"><i class="fa-solid fa-border-all"></i></span>
+                        <span class="nav-text">Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/performance_overview" class="nav-link active expanded" id="perfOverviewLink">
+                        <span class="nav-icon"><i class="fa-solid fa-chart-pie"></i></span>
+                        <span class="nav-text">Performance Overview</span>
+                        <i class="fa-solid fa-chevron-down ms-auto dropdown-icon"
+                            style="transform: rotate(180deg);"></i>
+                    </a>
+                    <ul class="sub-menu show" id="perfSubMenu">
+                        <li><a href="/learning_outcome_alignment" class="active-sub">Learning Outcome Alignment</a></li>
+                        <li><a href="#">Subject Performance</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" id="skillProgressLink">
+                        <span class="nav-icon"><i class="fa-solid fa-arrow-trend-up"></i></span>
+                        <span class="nav-text">Skill Progress</span>
+                        <i class="fa-solid fa-chevron-down ms-auto dropdown-icon"></i>
+                    </a>
+                    <ul class="sub-menu" id="skillSubMenu">
+                        <li><a href="#">Mapped Skill Development</a></li>
+                        <li><a href="#">Skills Chart</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" id="devAnalyticsLink">
+                        <span class="nav-icon"><i class="fa-solid fa-chart-simple"></i></span>
+                        <span class="nav-text">Development Analytics</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon"><i class="fa-solid fa-file-invoice"></i></span>
+                        <span class="nav-text">Resume Generator</span>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="sidebar-footer">
+                <ul class="nav-links">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <span class="nav-icon"><i class="fa-solid fa-gear"></i></span>
+                            <span class="nav-text">Settings</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/" class="nav-link">
+                            <span class="nav-icon"><i class="fa-solid fa-arrow-right-from-bracket"></i></span>
+                            <span class="nav-text">Log Out</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <span class="nav-icon"><i class="fa-solid fa-circle-question"></i></span>
+                            <span class="nav-text">Help</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Header -->
+            <header class="top-header">
+                <div class="welcome-text">
+                    <h2>Welcome, NameStudent</h2>
+                </div>
+                <div class="header-right">
+                    <div class="search-bar">
+                        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                        <input type="text" placeholder="Search here">
+                    </div>
+                    <div class="user-profile">
+                        <div class="user-info">
+                            <span class="user-name">Beltran, Don Maxwell F.</span>
+                            <span class="user-id">22-07**5</span>
+                        </div>
+                        <div class="user-avatar">
+                            <img src="https://ui-avatars.com/api/?name=Don+Maxwell+Beltran&background=d1121e&color=fff"
+                                alt="User">
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-wrapper">
+                <div class="page-header-row">
+                    <h2 class="page-title">Learning Outcome Alignment</h2>
+                    <div class="filter-dropdown">
+                        <i class="fa-solid fa-filter"></i>
+                        <select>
+                            <option>Course</option>
+                            <option selected>Math 403 - Engineering Data Analytics</option>
+                        </select>
+                    </div>
+                </div>
+
+                <h3 class="course-subtitle">Math 403 - Engineering Data Analytics</h3>
+
+                <div class="loa-grid">
+                    <!-- Left Column: Tables -->
+                    <div class="loa-left-col">
+                        <!-- Mapped Student Outcome -->
+                        <div class="card table-card">
+                            <h3 class="card-title">Mapped Student Outcome</h3>
+                            <table class="loa-table">
+                                <thead>
+                                    <tr>
+                                        <th>SO Code</th>
+                                        <th>Outcome</th>
+                                        <th>Score</th>
+                                        <th>Proficiency Level</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>SO1</td>
+                                        <td>Discipline Knowledge</td>
+                                        <td class="score-text">85%</td>
+                                        <td class="status-proficient">Proficient</td>
+                                    </tr>
+                                    <tr>
+                                        <td>SO4</td>
+                                        <td>Leadership and Teamwork</td>
+                                        <td class="score-text">58%</td>
+                                        <td class="status-developing">Developing</td>
+                                    </tr>
+                                    <tr>
+                                        <td>SO6</td>
+                                        <td>Ethics and Professionalism</td>
+                                        <td class="score-text">93%</td>
+                                        <td class="status-proficient">Proficient</td>
+                                    </tr>
+                                    <tr>
+                                        <td>SO11</td>
+                                        <td>Modern Tool Usage</td>
+                                        <td class="score-text">45%</td>
+                                        <td class="status-improvement">For Improvement</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Mapped Learning Outcome -->
+                        <div class="card table-card">
+                            <h3 class="card-title">Mapped Learning Outcome</h3>
+                            <table class="loa-table">
+                                <thead>
+                                    <tr>
+                                        <th>ILO Code</th>
+                                        <th>Mapped Outcome</th>
+                                        <th>Score</th>
+                                        <th>Proficiency Level</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>ILO1</td>
+                                        <td>SO1, SO2</td>
+                                        <td class="score-text">88%</td>
+                                        <td class="status-proficient">Proficient</td>
+                                    </tr>
+                                    <tr>
+                                        <td>ILO2</td>
+                                        <td>SO2, SO5</td>
+                                        <td class="score-text">77%</td>
+                                        <td class="status-developing">Developing</td>
+                                    </tr>
+                                    <tr>
+                                        <td>ILO3</td>
+                                        <td>SO3, SO11</td>
+                                        <td class="score-text">64%</td>
+                                        <td class="status-proficient">Proficient</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="ilo-descriptions">
+                                <p><strong>ILO1 -</strong> Acquire knowledge of probability and random variables</p>
+                                <p><strong>ILO2 -</strong> Solve engineering problems using random variables</p>
+                                <p><strong>ILO3 -</strong> Analyze data using statistical methods</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Chart & Remarks -->
+                    <div class="loa-right-col">
+                        <!-- Radar Chart -->
+                        <div class="card chart-card">
+                            <h3 class="card-title">Mapped ILO/SO Performance</h3>
+                            <div class="chart-container-radar">
+                                <canvas id="radarChart"></canvas>
+                            </div>
+                        </div>
+
+                        <!-- Remarks -->
+                        <div class="card remarks-card">
+                            <h3 class="card-title">Remarks:</h3>
+                            <div class="remark-item">
+                                <i class="fa-solid fa-square-check text-green"></i>
+                                <p>You have demonstrated strong competencies in Discipline Knowledge, Problem Analysis,
+                                    and Professional Ethics.</p>
+                            </div>
+                            <div class="remark-item">
+                                <i class="fa-solid fa-triangle-exclamation text-yellow"></i>
+                                <p>Improvement is needed in Modern Tool Usage and Team Collaboration, particularly in
+                                    applying learned tools in group settings.</p>
+                            </div>
+                            <div class="remark-item">
+                                <i class="fa-regular fa-pen-to-square text-gray"></i>
+                                <p>Recommendation: Participate in project-based tasks involving modern tool applications
+                                    and peer collaboration exercises.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Sidebar Toggle Script (Reused) -->
+    <script>
+        const sidebar = document.getElementById('sidebar');
+        const toggleBtn = document.getElementById('sidebarToggle');
+        const icon = toggleBtn.querySelector('i');
+
+        toggleBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+            if (sidebar.classList.contains('collapsed')) {
+                icon.classList.remove('fa-arrow-left');
+                icon.classList.add('fa-arrow-right');
+            } else {
+                icon.classList.remove('fa-arrow-right');
+                icon.classList.add('fa-arrow-left');
+            }
+        });
+
+        // Sub-menu Toggle Logic
+        const perfLink = document.getElementById('perfOverviewLink');
+        const perfSubMenu = document.getElementById('perfSubMenu');
+
+        perfLink.addEventListener('click', (e) => {
+            if (sidebar.classList.contains('collapsed')) return;
+
+            // Check if the click was on the dropdown icon
+            if (e.target.classList.contains('dropdown-icon')) {
+                e.preventDefault(); // Prevent navigation only for icon
+                e.stopPropagation();
+                perfSubMenu.classList.toggle('show');
+                perfLink.classList.toggle('expanded');
+            }
+            // Otherwise, let it navigate
+        });
+
+        // Skill Progress Toggle Logic
+        const skillLink = document.getElementById('skillProgressLink');
+        const skillSubMenu = document.getElementById('skillSubMenu');
+
+        skillLink.addEventListener('click', (e) => {
+            if (sidebar.classList.contains('collapsed')) return;
+
+            // Check if the click was on the dropdown icon
+            if (e.target.classList.contains('dropdown-icon')) {
+                e.preventDefault();
+                e.stopPropagation();
+                skillSubMenu.classList.toggle('show');
+                skillLink.classList.toggle('expanded');
+            }
+        });
+    </script>
+
+    <!-- Radar Chart Script -->
+    <script>
+        const ctxRadar = document.getElementById('radarChart').getContext('2d');
+        const radarChart = new Chart(ctxRadar, {
+            type: 'radar',
+            data: {
+                labels: ['SO1', 'SO2', 'SO3', 'SO4', 'SO5', 'SO6', 'SO11'],
+                datasets: [{
+                    label: 'Plotted Score (%)',
+                    data: [85, 90, 80, 58, 77, 93, 45],
+                    fill: true,
+                    backgroundColor: 'rgba(230, 46, 46, 0.3)', // Red transparent
+                    borderColor: '#d1121e',
+                    pointBackgroundColor: '#d1121e',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgb(255, 99, 132)'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        angleLines: {
+                            display: true
+                        },
+                        suggestedMin: 0,
+                        suggestedMax: 100,
+                        ticks: {
+                            stepSize: 20,
+                            callback: function (value) { return value + '%' }
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        position: 'top',
+                        labels: {
+                            usePointStyle: true,
+                            boxWidth: 8
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,355 @@
+/* Modern Grid Layout */
+body {
+    background-color: #f4f6f9;
+    /* Light grey background */
+}
+
+/* Main Content Override for Padding */
+.main-content {
+    padding: 30px;
+    /* "Space for this" */
+}
+
+.instructor-grid {
+    display: grid;
+    /* Adjusted columns: GWA, Comp/Anal, Status, Trend/Improve */
+    grid-template-columns: 1.2fr 1fr 2fr 1.3fr;
+    grid-template-rows: minmax(140px, auto) minmax(140px, auto) 1fr;
+    gap: 20px;
+    margin-top: 25px;
+    grid-template-areas:
+        "gwa comp status trend"
+        "gwa anal status trend"
+        "pass pass pass imp";
+    min-height: calc(100vh - 200px);
+}
+
+/* Areas */
+.area-gwa {
+    grid-area: gwa;
+}
+
+.area-comp {
+    grid-area: comp;
+}
+
+.area-anal {
+    grid-area: anal;
+}
+
+.area-status {
+    grid-area: status;
+}
+
+.area-pass {
+    grid-area: pass;
+}
+
+.area-trend {
+    grid-area: trend;
+}
+
+.area-imp {
+    grid-area: imp;
+}
+
+/* Header */
+.instructor-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #b91c1c;
+    padding-bottom: 15px;
+}
+
+.page-title-large {
+    color: #7f1d1d;
+    font-size: 1.6rem;
+    font-weight: 800;
+}
+
+.user-profile-simple {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: transparent;
+    /* Removed red background */
+    color: #333;
+    padding: 0;
+    box-shadow: none;
+    position: relative;
+    right: 0;
+}
+
+.user-name-id {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    /* Align right */
+    text-align: right;
+    font-size: 0.9rem;
+}
+
+.user-name-id strong {
+    font-size: 1.1rem;
+    color: #4a0404;
+    /* Dark red/brown text */
+    font-weight: 800;
+    margin-bottom: 4px;
+}
+
+.user-badge {
+    background: #e62e2e;
+    /* Bright red badge */
+    color: white;
+    padding: 3px 12px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background: #fff;
+}
+
+.input-section-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #1f2937;
+}
+
+/* Card Styling */
+/* Card Styling */
+.card {
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    /* Softer, deeper shadow */
+    border: none;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.card h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 15px;
+    line-height: 1.2;
+    text-align: center;
+    /* Most titles appear centered in design */
+}
+
+/* Align left for specific cards if needed override later */
+.area-status h4,
+.area-pass h4,
+.area-imp h4 {
+    text-align: left;
+}
+
+/* Widget Specifics using Flex to fill grid area */
+
+/* GWA */
+.stat-circle-card {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.circle-chart-container {
+    width: 140px;
+    height: 140px;
+    position: relative;
+    margin: auto;
+}
+
+.circle-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #1f2937;
+}
+
+/* Comp */
+.stat-circle-card-small {
+    justify-content: space-between;
+}
+
+.circle-chart-container-small {
+    width: 70px;
+    height: 70px;
+    position: relative;
+    align-self: center;
+}
+
+.circle-text-small {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+/* Anal */
+.pie-card {
+    justify-content: flex-start;
+}
+
+.chart-wrapper-pie {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Status */
+.area-chart-card {
+    /* No special flex needed if handled by card */
+}
+
+.status-legend {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+    font-size: 0.7rem;
+    margin-bottom: 5px;
+}
+
+.chart-wrapper-area {
+    margin-top: auto;
+    height: 85%;
+    /* Or flex-grow */
+    width: 100%;
+    flex-grow: 1;
+}
+
+.dot {
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.dot.red {
+    background-color: #fca5a5;
+}
+
+.dot.dark-red {
+    background-color: #b91c1c;
+}
+
+.dot.light-pink {
+    background-color: #fecaca;
+}
+
+/* Pass */
+.bar-chart-card {
+    justify-content: space-between;
+}
+
+.chart-wrapper-bar {
+    height: 80%;
+    width: 100%;
+    flex-grow: 1;
+}
+
+
+.chart-wrapper-line {
+    flex-grow: 1;
+    width: 100%;
+}
+
+/* Imp */
+.skills-card {
+    overflow-y: auto;
+}
+
+.skills-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 5px;
+}
+
+.skill-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.75rem;
+}
+
+.skill-label {
+    width: 35%;
+    font-weight: 600;
+    color: #374151;
+}
+
+.progress-bar-wrapper {
+    width: 45%;
+    background: #e5e7eb;
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    background: #b91c1c;
+    height: 100%;
+    border-radius: 4px;
+}
+
+.skill-pct {
+    width: 15%;
+    text-align: right;
+    font-weight: 700;
+    color: #374151;
+}
+
+.view-all {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #b91c1c;
+    /* Theme red */
+    text-decoration: none;
+    align-self: flex-end;
+    margin-top: auto;
+    padding-top: 10px;
+}
+
+.view-all:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .instructor-grid {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+    }
+
+    .card {
+        height: 250px;
+    }
+
+    .stat-circle-card {
+        height: 250px;
+    }
+}

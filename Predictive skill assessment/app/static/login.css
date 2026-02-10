@@ -1,0 +1,253 @@
+/* app/static/login.css */
+
+:root {
+    --primary-red: #d1121e;
+    --dark-red: #8a0b12;
+    --bg-color: #f4f4f4;
+    --card-bg-start: #b31217;
+    /* Red gradient start */
+    --card-bg-end: #000000;
+    /* Black gradient end */
+    --text-white: #ffffff;
+    --input-border: #555;
+    --input-focus: #fff;
+}
+
+body,
+html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-color);
+    background-image: url('/static/img/login-bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.login-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.login-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.login-card {
+    background: linear-gradient(135deg, var(--card-bg-start) 0%, var(--card-bg-end) 60%);
+    width: 350px;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    color: var(--text-white);
+    text-align: center;
+}
+
+/* Header & Logo */
+.logo-header {
+    margin-bottom: 20px;
+}
+
+.university-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-img {
+    width: 50px;
+    height: auto;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    text-align: left;
+}
+
+.logo-icon {
+    font-size: 2rem;
+}
+
+.text-group h4 {
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.text-group h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.login-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+/* Form Styles */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: left;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    position: relative;
+    /* For tooltip positioning */
+}
+
+.input-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #eee;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px 0;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--input-border);
+    color: var(--text-white);
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+    border-bottom: 1px solid var(--input-focus);
+}
+
+/* Remove Autofill Background */
+.input-group input:-webkit-autofill,
+.input-group input:-webkit-autofill:hover,
+.input-group input:-webkit-autofill:focus,
+.input-group input:-webkit-autofill:active {
+    -webkit-text-fill-color: white !important;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+    color: #ccc;
+    padding: 5px;
+}
+
+.toggle-password:hover {
+    color: #fff;
+}
+
+/* Button */
+.btn-login {
+    margin-top: 10px;
+    padding: 12px;
+    background-color: var(--text-white);
+    color: black;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-login:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+/* Error States - Tooltip Style */
+.error-message {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 10;
+
+    background-color: #fff;
+    color: #333;
+    font-size: 0.85rem;
+    padding: 8px 12px;
+    border-radius: 4px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    margin-top: 8px;
+
+    /* Initially hidden */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+
+    /* Icon styling if needed, or just text */
+    border-left: 4px solid var(--primary-red);
+}
+
+/* Arrow pointing up */
+.error-message::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 15px;
+    border-width: 0 6px 6px 6px;
+    border-style: solid;
+    border-color: transparent transparent #fff transparent;
+}
+
+/* Show error message when it has content and class active */
+.error-message:not(:empty) {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.input-group input.input-error {
+    border-bottom: 2px solid var(--primary-red);
+    animation: shake 0.4s ease-in-out;
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-5px);
+    }
+
+    50% {
+        transform: translateX(5px);
+    }
+
+    75% {
+        transform: translateX(-5px);
+    }
+}

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instructor Dashboard - Performance Forecasting</title>
+    <link rel="stylesheet" href="/static/dashboard.css">
+    <link rel="stylesheet" href="/static/intructorDB.css">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-toggle" id="sidebarToggle">
+                <i class="fa-solid fa-arrow-left"></i>
+            </div>
+            <div class="sidebar-header">
+                <img src="/static/img/bsu-logo.png" alt="Logo" class="sidebar-logo">
+                <div class="brand-text">
+                    <h4>Performance</h4>
+                    <h3>FORECASTING</h3>
+                </div>
+            </div>
+
+            <ul class="nav-links">
+                <li class="nav-item">
+                    <a href="#" class="nav-link active">
+                        <span class="nav-icon"><i class="fa-solid fa-border-all"></i></span>
+                        <span class="nav-text">Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon"><i class="fa-solid fa-users-viewfinder"></i></span>
+                        <span class="nav-text">Student Monitoring</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon"><i class="fa-solid fa-chart-line"></i></span>
+                        <span class="nav-text">Report Analysis</span>
+                    </a>
+                </li>
+
+            </ul>
+
+            <div class="sidebar-footer">
+                <ul class="nav-links">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <span class="nav-icon"><i class="fa-solid fa-gear"></i></span>
+                            <span class="nav-text">Settings</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/" class="nav-link">
+                            <span class="nav-icon"><i class="fa-solid fa-arrow-right-from-bracket"></i></span>
+                            <span class="nav-text">Log Out</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <span class="nav-icon"><i class="fa-solid fa-circle-question"></i></span>
+                            <span class="nav-text">Help</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header Row -->
+            <div class="instructor-header-row">
+                <h2 class="page-title-large">Instructor's Dashboard</h2>
+                <div class="user-profile-simple">
+                    <div class="user-name-id">
+                        <strong>Beltran, Don Maxwell F.</strong>
+                        <span class="user-badge"><i class="fa-solid fa-user-tag"></i> 22-07**5</span>
+                    </div>
+                    <img src="https://ui-avatars.com/api/?name=Don+Maxwell+Beltran&background=d1121e&color=fff&rounded=true"
+                        alt="Profile" class="profile-pic">
+                </div>
+            </div>
+
+            <h3 class="input-section-title">Classroom Overview</h3>
+
+            <!-- Dashboard Grid (Flattened for Grid Areas) -->
+            <div class="instructor-grid">
+
+                <!-- GWA (Area: gwa) -->
+                <div class="card stat-circle-card area-gwa">
+                    <h4>Average<br>GWA of the class</h4>
+                    <div class="circle-chart-container">
+                        <canvas id="gwaDoughnut"></canvas>
+                        <div class="circle-text">90%</div>
+                    </div>
+                    <a href="#" class="view-all">View all</a>
+                </div>
+
+                <!-- Completion (Area: comp) -->
+                <div class="card stat-circle-card-small area-comp">
+                    <div class="header-split">
+                        <h4>Completion</h4>
+                    </div>
+                    <div class="circle-chart-container-small">
+                        <canvas id="completionDoughnut"></canvas>
+                        <div class="circle-text-small">95%</div>
+                    </div>
+                    <a href="#" class="view-all">View all</a>
+                </div>
+
+                <!-- Class Level Analytics (Area: anal) -->
+                <div class="card pie-card area-anal">
+                    <h4>Class Level Analytics</h4>
+                    <div class="chart-wrapper-pie">
+                        <canvas id="classAnalyticsPie"></canvas>
+                    </div>
+                    <a href="#" class="view-all">View all</a>
+                </div>
+
+                <!-- Performing Students Status (Area: status) -->
+                <div class="card area-chart-card area-status">
+                    <h4>Performing Students Status</h4>
+                    <div class="status-legend">
+                        <span><span class="dot red"></span> Low Performers</span>
+                        <span><span class="dot dark-red"></span> Average Performers</span>
+                        <span><span class="dot light-pink"></span> High Performers</span>
+                    </div>
+                    <div class="chart-wrapper-area">
+                        <canvas id="studentStatusArea"></canvas>
+                    </div>
+                    <a href="#" class="view-all">View all</a>
+                </div>
+
+                <!-- Passing Rate (Area: pass) -->
+                <div class="card bar-chart-card area-pass">
+                    <div class="header-split">
+                        <h4>Passing Rate per Semester</h4>
+                        <a href="#" class="view-all">View all</a>
+                    </div>
+                    <div class="chart-wrapper-bar">
+                        <canvas id="passingRateBar"></canvas>
+                    </div>
+                </div>
+
+                <!-- Skills Trends (Area: trend) -->
+                <div class="card line-chart-card area-trend">
+                    <h4>Skills Trends</h4>
+                    <div class="chart-wrapper-line">
+                        <canvas id="skillsTrendLine"></canvas>
+                    </div>
+                </div>
+
+                <!-- Skills to Improve (Area: imp) -->
+                <div class="card skills-card area-imp">
+                    <h4>Skills to Improve</h4>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <span class="skill-label">Skill To Improve</span>
+                            <div class="progress-bar-wrapper">
+                                <div class="progress-bar" style="width: 65%;"></div>
+                            </div>
+                            <span class="skill-pct">65%</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-label">Skill To Improve</span>
+                            <div class="progress-bar-wrapper">
+                                <div class="progress-bar" style="width: 50%;"></div>
+                            </div>
+                            <span class="skill-pct">50%</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-label">Skill To Improve</span>
+                            <div class="progress-bar-wrapper">
+                                <div class="progress-bar" style="width: 75%;"></div>
+                            </div>
+                            <span class="skill-pct">75%</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-label">Problem Solving</span>
+                            <div class="progress-bar-wrapper">
+                                <div class="progress-bar" style="width: 83%;"></div>
+                            </div>
+                            <span class="skill-pct">83%</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Sidebar Toggle
+        const sidebar = document.getElementById('sidebar');
+        const toggleBtn = document.getElementById('sidebarToggle');
+        const icon = toggleBtn.querySelector('i');
+        toggleBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+            if (sidebar.classList.contains('collapsed')) {
+                icon.classList.remove('fa-arrow-left');
+                icon.classList.add('fa-arrow-right');
+            } else {
+                icon.classList.remove('fa-arrow-right');
+                icon.classList.add('fa-arrow-left');
+            }
+        });
+
+        // Charts
+        const commonOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } }
+        };
+
+        // 1. GWA Doughnut
+        new Chart(document.getElementById('gwaDoughnut'), {
+            type: 'doughnut',
+            data: {
+                labels: ['Avg GWA', 'Remaining'],
+                datasets: [{
+                    data: [90, 10],
+                    backgroundColor: ['#b91c1c', '#e5e7eb'], // Cleaner red/gray
+                    borderWidth: 0,
+                    cutout: '75%'
+                }]
+            },
+            options: { ...commonOptions, plugins: { ...commonOptions.plugins, tooltip: { enabled: false } } }
+        });
+
+        // 2. Completion Doughnut
+        new Chart(document.getElementById('completionDoughnut'), {
+            type: 'doughnut',
+            data: {
+                labels: ['Completed', 'Remaining'],
+                datasets: [{
+                    data: [95, 5],
+                    backgroundColor: ['#b91c1c', '#e5e7eb'],
+                    borderWidth: 0,
+                    cutout: '70%'
+                }]
+            },
+            options: { ...commonOptions, plugins: { ...commonOptions.plugins, tooltip: { enabled: false } } }
+        });
+
+        // 3. Class Analytics Pie
+        new Chart(document.getElementById('classAnalyticsPie'), {
+            type: 'pie',
+            data: {
+                labels: ['A', 'A-', 'B+', 'B', 'CS'],
+                datasets: [{
+                    data: [25, 30, 20, 15, 10],
+                    backgroundColor: ['#fca5a5', '#f87171', '#ef4444', '#b91c1c', '#7f1d1d'], // Tailwind reds
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                plugins: {
+                    legend: { display: true, position: 'right', labels: { boxWidth: 8, font: { size: 9 } } }
+                },
+                maintainAspectRatio: false
+            }
+        });
+
+        // 4. Student Status (Stacked Area)
+        new Chart(document.getElementById('studentStatusArea'), {
+            type: 'line',
+            data: {
+                labels: ['1st Year', '2nd Year', '3rd Year', '4th Year'],
+                datasets: [
+                    {
+                        label: 'High',
+                        data: [30, 40, 35, 30],
+                        backgroundColor: 'rgba(252, 165, 165, 0.5)',
+                        borderWidth: 0, fill: true, tension: 0.4
+                    },
+                    {
+                        label: 'Average',
+                        data: [60, 55, 60, 50],
+                        backgroundColor: 'rgba(185, 28, 28, 0.5)',
+                        borderWidth: 0, fill: true, tension: 0.4
+                    },
+                    {
+                        label: 'Low',
+                        data: [30, 25, 30, 20],
+                        backgroundColor: 'rgba(240, 82, 82, 0.5)',
+                        borderWidth: 0, fill: true, tension: 0.4
+                    }
+                ]
+            },
+            options: {
+                ...commonOptions,
+                scales: {
+                    y: { stacked: true, beginAtZero: true, ticks: { display: true, font: { size: 9 } } },
+                    x: { ticks: { font: { size: 9 } } }
+                }
+            }
+        });
+
+        // 5. Passing Rate Bar
+        new Chart(document.getElementById('passingRateBar'), {
+            type: 'bar',
+            data: {
+                labels: ['Y1-S1', 'Y1-S2', 'Y2-S1', 'Y2-S2', 'Y3-S1', 'Y3-S2', 'Y4-S1', 'Y4-S2'],
+                datasets: [{
+                    data: [95, 88, 85, 90, 80, 85, 85, 75],
+                    backgroundColor: ['#991b1b', '#ef4444', '#f87171', '#fca5a5', '#dc2626', '#b91c1c', '#991b1b', '#ef4444'],
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                ...commonOptions,
+                scales: {
+                    x: { grid: { display: false }, ticks: { font: { size: 8 } } },
+                    y: { display: false }
+                }
+            }
+        });
+
+        // 6. Skills Trend Line
+        new Chart(document.getElementById('skillsTrendLine'), {
+            type: 'line',
+            data: {
+                labels: ['Y1-S1', 'Y1-S2', 'Y2-S1', 'Y2-S2', 'Y3-S1', 'Y3-S2', 'Y4-S1', 'Y4-S2'],
+                datasets: [{
+                    data: [100, 75, 82, 98, 83, 88, 90, 75],
+                    borderColor: '#b91c1c',
+                    borderWidth: 1.5,
+                    pointRadius: 0,
+                    tension: 0
+                }]
+            },
+            options: {
+                ...commonOptions,
+                scales: {
+                    y: { beginAtZero: true, max: 100, ticks: { font: { size: 9 } } },
+                    x: { ticks: { font: { size: 8 } } }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
